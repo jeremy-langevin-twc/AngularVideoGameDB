@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment as env } from 'src/environments/environment';
+import {Observable } from 'rxjs';
+import { APIResponse, Game } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +22,7 @@ export class HttpService {
     }
 
     return this.http.get<APIResponse<Game>>(`${env.BASE_URL}/games`, {
-      params: params;
+      params: params,
     });
   }
 }
